@@ -65,7 +65,7 @@ var UIController = (function() {
             return {
                 type: document.querySelector(DOMStrings.inputType).value, //either inc or exp
                 description: document.querySelector(DOMStrings.inputDescription).value,
-                value: document.querySelector(DOMStrings.inputValue).value
+                value: parseFloat(document.querySelector(DOMStrings.inputValue).value)
             };
         },
         //object the same what we used in the function constructor CtrlAddItem
@@ -104,7 +104,7 @@ var UIController = (function() {
                 current.value = "";
             });
 
-            fierldsArr[0].focus();
+            fieldsArr[0].focus();
         },
 
         getDOMStrings: function() {
@@ -131,22 +131,35 @@ var controller = (function(budgetCtrl, UICtrl) {
         });
     };
     
+    var updateBudget = function () {
+        //1. Calculate budget
+    
+        //2. Return the budget
+
+        //3. Display the budget to the UI
+
+    }
+
     var ctrlAddItem = function() {
         var input, newItem;
          //1. Get field input data
+
         input = UICtrl.getInput();
-        //2. Add the item to the budget controller.
-        newItem = budgetCtrl.addItem(input.type, input.description, input.value);
-        //3. Add the item to the UI.
-        UIController.addListItem(newItem, input.type);
-        
-        //4. Clear fields
-        UIController.clearFields();
-        
-        //4. Calculate the budget
 
-        //5. Display the budget to the UI
+        if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
+            
+            //2. Add the item to the budget controller.
+            newItem = budgetCtrl.addItem(input.type, input.description, input.value);
+            //3. Add the item to the UI.
+            UIController.addListItem(newItem, input.type);
 
+            //4. Clear fields
+            UIController.clearFields();
+
+            //5. Calculate and update the budget
+            updateBudget();    
+        }
+        
     };
 
     return {
