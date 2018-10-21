@@ -2,7 +2,7 @@
 
 This is an application built from scratch, which uses modular JavaScript functions for UI and data manipulation, event listeners, DOM manipulation methods, demonstrating basic JavaScript programming principles.
 
-[Visit the project:](http://tonytettinger.github.io//Budgeting-Application/index.html)
+[Visit the project](http://tonytettinger.github.io/Budgeting-Application)
 
 Reference:
 This project is based on the following course:
